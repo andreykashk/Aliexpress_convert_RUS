@@ -1,2 +1,3 @@
 # Aliexpress_convert_RUS
-converts product page to global version
+converts URL product page to global version
+Country UA
