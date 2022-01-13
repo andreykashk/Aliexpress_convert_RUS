@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Aliexpress_convert_RUS
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       Andrey_Ka
 // @match        https://aliexpress.ru/item/*
@@ -13,26 +13,24 @@
 // ==/UserScript==
 
 (function() {
-  'use strict';
-  function convert(href) {
-      href = href.split('?')[0];
-      document.location.href = href + "?fromApp=true&currency=USD&region=UA&b_locale=en_US&site=glo";
-  }
-
-  var currUrl = document.location.href;
-  if (currUrl.indexOf("html?from") >= 0) {
-      return;
-  } else {
-      if (currUrl.indexOf("aliexpress.com") >= 0) {
-          convert(currUrl);
-          window.onload;
-      } else {
-          var convUrl = currUrl.replace('ru', 'com');
-          convert(convUrl)
-      }
-      return;
-  }
-
-  //alert(convUrl);
-
-})();
+    'use strict';
+    function convert(href) {
+            href = href.split('?')[0];
+          document.location.href = href + "?fromApp=false&currency=USD&region=RU&bLocale=en_US&site=glo&isb=y";
+    }
+       var currUrl = document.location.href;
+    if (currUrl.indexOf("aliexpress.ru") >= 0) {
+       currUrl = currUrl.replace('ru', 'com');}
+    if (currUrl.indexOf("html?from") >= 0) {
+        return;
+    } else {
+        if (currUrl.indexOf("aliexpress.com") >= 0) {
+            convert(currUrl);
+            window.onload;
+        }
+        return;
+    }
+  
+    //alert(convUrl);
+  
+  })();
